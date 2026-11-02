@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+:root {
+  --text-color: #333;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  font-family: "Lora", serif;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.title-container {
+  position: absolute;
+  left: 22vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.creature-container-rotator {
+  position: relative;
+  left: 22vw;
+  top: 50vh;
+  transform-origin: left top;
+  /* animation: rotateItem 720s linear infinite; */
+}
+
+.creature-container {
+  /* the code below is not necessary as they are used in the rotator above. */
+  /*
+  position: relative;
+  left: 20vw;
+  top: 50vh;
+  */
+  transform-origin: left top;
+  animation: rotateItem 720s linear infinite;
+}
+
+.creature-item {
+  transform-origin: left center;
+
+  position: absolute;
+  width: 70vh;
+  height: 0px;
+
+  color: black;
+
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+}
+
+.spacer {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  margin-right: 1rem;
+}
+
+.creature-item h3 {
+  transform-origin: left center;
+
+  margin-right: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+
+  font-weight: 400;
+  color: white;
+  background-color: black;
+}
+
+.creature-item h3:hover {
+  /* background-color: #0FB; */
+  /* color: black; */
+}
+
+.creature-item p {
+  padding: 0.1rem 0.5rem;
+  transform-origin: left center;
+  /* background-color: aqua; */
+}
+
+@keyframes rotateItem {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .title-container {
+    position: static;
+    transform: none;
+    text-align: center;
+
+    width: 90vw;
+    margin: 3rem auto;
+  }
+
+  .creature-container-rotator {
+    position: static;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .creature-container {
+    position: static;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    animation: none;
+  }
+
+  .creature-item {
+    position: static;
+    margin: 0.8rem;
+    padding: 0.5rem;
+    color: black;
+
+    width: 80vw;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  .creature-item h3 {
+    width: 100%;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+  }
+
+  .creature-item p {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+  }
+}
